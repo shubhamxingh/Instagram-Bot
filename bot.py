@@ -46,6 +46,25 @@ class InstagramBot:
         time.sleep(1)
         self.driver.find_element_by_xpath("//button[contains(text(), 'Unfollow')]").click()
 
+
+    def like_post(self, user, n_posts, like=True):
+        action = 'Like' if like else 'Unlike'
+        
+        self.nav_user(user)
+        
+        images = []
+        images.extend(self.driver.find_elements_by_class_name("eLAPa"))
+        
+        for image in images[:n_posts]:
+            time.sleep(1)
+            image.click()
+            try:
+                self.driver.find_element_by_xpath("/html/body/div[3]/div[2]/div/article/div[2]/section[1]/span[1]/button/span").click()
+            except Exception as e:
+                print(e)
+        
+    
+    
 if __name__ == '__main__':
     
     username = "goodmemeslol"
@@ -53,7 +72,7 @@ if __name__ == '__main__':
     
     ig_bot = InstagramBot(username, password)
     
-    ig_bot.unfollow_user('setuptechx')
+    ig_bot.like_post('setuptechx', 2 , True)
     
     
     
