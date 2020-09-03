@@ -67,8 +67,8 @@ class InstagramBot:
     
 if __name__ == '__main__':
     
-    username = "goodmemeslol"
-    password = "9015115792"
+    username = " ENTER USERNAME HERE "
+    password = " ENTER PASSWORD HERE"
     
     ig_bot = InstagramBot(username, password)
     
